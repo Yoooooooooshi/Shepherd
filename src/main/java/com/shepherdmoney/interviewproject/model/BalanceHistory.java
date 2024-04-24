@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Getter
@@ -25,5 +27,9 @@ public class BalanceHistory {
     private LocalDate date;
 
     private double balance;
+
+    @ManyToOne
+    @JoinColumn(name = "credit_card_id")
+    private CreditCard creditCard;  // Link back to the CreditCard entity
     
 }
